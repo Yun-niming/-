@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="cn">
+
+<head>
+
+    <meta charset="utf-32">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>叫号系统</title>
+
+</head>
+
+<body>
+
+    <h1>叫号系统</h1>
+
+    <label for="numberInput">输入数字</label>
+
+    <input type="number" id="numberInput" min="1" max="5">
+
+    <button onclick="playSound()">呼叫</button>
+
+
+
+    <script>
+
+        function playSound() {
+
+            var numberInput = document.getElementById("numberInput").value;
+
+
+
+            if (numberInput !== "") {
+
+                var audioUrl = getAudioFileUrl(numberInput);
+
+                var audio = new Audio(audioUrl);
+
+                audio.play();
+
+            } else {
+
+                alert("��������Ч�����֣�");
+
+            }
+
+        }
+
+
+
+        function getAudioFileUrl(number) {
+
+            // �������ַ�����Ӧ��������Ƶ�ļ�URL
+
+            var audioFiles = {
+
+                '1': '1.mp3',
+
+                '2': 'https://example.com/audio/2.mp3',
+
+                '3': 'https://example.com/audio/3.mp3',
+
+                '4': 'https://example.com/audio/4.mp3',
+
+                '5': 'https://example.com/audio/5.mp3'
+
+                // �����������������ֶ�Ӧ����Ƶ�ļ�URL
+
+            };
+
+
+
+            // ��������������Ԥ����ķ�Χ�ڣ����ض�Ӧ����Ƶ�ļ�URL�����򷵻ؿ��ַ���
+
+            return audioFiles[number] || '';
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+
